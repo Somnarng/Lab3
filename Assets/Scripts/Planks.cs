@@ -10,6 +10,7 @@ public class Planks : Destructable
     private Rigidbody rb;
     private Material material;
     private HighlightInteractable HI;
+    public DoorActivator doorActivator;
 
     private float initialAlpha;
     void Start()
@@ -17,7 +18,7 @@ public class Planks : Destructable
         rb = GetComponent<Rigidbody>();
         material = GetComponent<Renderer>().material;
         HI = GetComponent<HighlightInteractable>();
-
+        doorActivator = FindObjectOfType<DoorActivator>();
         rb.isKinematic = true;
 
         initialAlpha = material.color.a;
@@ -27,6 +28,7 @@ public class Planks : Destructable
         rb.isKinematic = false;
         HI.enabled = false;
         GetComponent<Renderer>().material = material;
+        doorActivator.PlankDestroyed();
         StartCoroutine(FadeOut());
     }
     IEnumerator FadeOut()
