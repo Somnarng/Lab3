@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ToggleHold : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> myList;
+    public List<GameObject> myList;
 
     private int currentActiveIndex = 0;
 

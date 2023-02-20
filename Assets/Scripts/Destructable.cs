@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destructable : MonoBehaviour
+public abstract class Destructable : MonoBehaviour
 {
     [SerializeField] private int _health;
 
@@ -15,13 +15,11 @@ void HealthCheck()
         }
     }
 
-void Damage()
+public void Damage()
     {
         _health--;
+        HealthCheck();
     }
 
-void Destroy()
-    {
-        this.gameObject.SetActive(false);
-    }
+    public abstract void Destroy();
 }

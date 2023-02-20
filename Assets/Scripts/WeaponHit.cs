@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class WeaponHit : MonoBehaviour
 {//put this on the WEAPON object, not PLAYER. Only active when WEAPON is active.
+    public float raycastDistance = 5f;
     void Update()
     {
-        if (Input.GetMouseButton(0))//on left click, run hitdetect, if hitdetect true call DAMAGE function on OTHER.
+        if (Input.GetMouseButtonDown(0))//on left click, run hitdetect, if hitdetect true call DAMAGE function on OTHER.
         {
             HitDetect();
         }
     }
 
-    void HitDetect() //raycast forward, check if object is DESTRUCTABLE. set 
+    void HitDetect() //raycast forward, check if object is DESTRUCTABLE. 
     {
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f)); // center raycast to screen center
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.forward, out hit, 3))
+        if (Physics.Raycast(transform.position, Vector3.forward))
         {
-            //do destructable check, call DAMAGE function
+            if (Physics.Raycast(ray, out hit, raycastDistance))
+            {
+                if (hit.collider.CompareTag("destructible"))
+                {
+                    hit.collider.GetComponent<Destructable>().Damage();
+                }
+                //do destructible check, call DAMAGE function
+            }
         }
     }
 }
