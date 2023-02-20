@@ -5,11 +5,13 @@ using UnityEngine;
 public class WeaponHit : MonoBehaviour
 {//put this on the WEAPON object, not PLAYER. Only active when WEAPON is active.
     public float raycastDistance = 5f;
+    [SerializeField] private Animator anim;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))//on left click, run hitdetect, if hitdetect true call DAMAGE function on OTHER.
         {
             HitDetect();
+            anim.Play("Attack");
         }
     }
 
