@@ -6,6 +6,17 @@ public class WeaponHit : MonoBehaviour
 {//put this on the WEAPON object, not PLAYER. Only active when WEAPON is active.
     public float raycastDistance = 5f;
     [SerializeField] private Animator anim;
+    [SerializeField] private Animator tutanim;
+    private bool hasPlayed = false;
+
+    private void Start()
+    {
+        if (!hasPlayed)
+        {
+            tutanim.Play("MouseTut");
+            hasPlayed = true;
+        }
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))//on left click, run hitdetect, if hitdetect true call DAMAGE function on OTHER.
