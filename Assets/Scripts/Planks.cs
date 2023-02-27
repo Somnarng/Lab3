@@ -28,7 +28,7 @@ public class Planks : Destructable
         rb.isKinematic = false;
         HI.enabled = false;
         GetComponent<Renderer>().material = material;
-        doorActivator.PlankDestroyed();
+        doorActivator?.PlankDestroyed();
         StartCoroutine(FadeOut());
     }
     IEnumerator FadeOut()
