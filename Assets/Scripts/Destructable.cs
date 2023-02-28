@@ -6,7 +6,12 @@ public abstract class Destructable : MonoBehaviour
 {
     [SerializeField] private int _health;
 
-void HealthCheck()
+    public void Damage()
+    {
+        _health--;
+        HealthCheck();
+    }
+    void HealthCheck()
     {
         if(_health <= 0)
         {
@@ -15,11 +20,6 @@ void HealthCheck()
         }
     }
 
-public void Damage()
-    {
-        _health--;
-        HealthCheck();
-    }
 
     public abstract void Destroy();
 }

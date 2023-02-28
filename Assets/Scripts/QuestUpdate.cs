@@ -29,6 +29,12 @@ public class QuestUpdate : MonoBehaviour
                 questText.text = "Investigate the room.";
                 break;
             case 3:
+                questText.text = "Find the code.";
+                break;
+            case 4:
+                questText.text = "Input the code: 04115.";
+                break;
+            case 5:
                 questText.text = "Incapacitate the Stranger.";
                 break;
             default:
