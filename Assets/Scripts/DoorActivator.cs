@@ -5,21 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class DoorActivator : MonoBehaviour
 {
-    private int planksDestroyed = 0;
+    public List<GameObject> planks = new List<GameObject>();
+    public bool planksDestroyed = false;
     public string nextSceneName;
-    public void PlankDestroyed()
-    {
-        planksDestroyed++;
 
-        if (planksDestroyed >= 3)
+    public void Update()
+    {
+        if(planks == null || planks.Count <= 0)
         {
+            planksDestroyed = true;
             gameObject.GetComponent<Collider>().enabled = true;
         }
     }
 
     public void Interact()
     {
-        if (planksDestroyed >= 3)
+        if (planksDestroyed == true)
         {
             SceneManager.LoadScene(nextSceneName);
         }
