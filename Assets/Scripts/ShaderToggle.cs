@@ -23,8 +23,7 @@ public class ShaderToggle : MonoBehaviour
             shaderToggleBox.isOn = false;
         }
     }
-
-public void FlipBool()
+    public void FlipBool()
     {
         shaderOn = !shaderOn;
     }

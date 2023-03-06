@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseCanvas;
+    [SerializeField] private Canvas pauseCanvas;
     [SerializeField] private bool isPaused = false;
 
     [SerializeField] private StarterAssets.FirstPersonController firstPersonController;
     [SerializeField] private PixelCrushers.DialogueSystem.Wrappers.Selector selector;
 
-    private void Start()
+    public void Awake()
     {
-        pauseCanvas.SetActive(false);
         firstPersonController = FindObjectOfType<StarterAssets.FirstPersonController>();
         selector = FindObjectOfType<PixelCrushers.DialogueSystem.Wrappers.Selector>();
+        Pause();
     }
     void Update()
     {
@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
         if (isPaused == true)
         {
             Time.timeScale = 0;
-            pauseCanvas.SetActive(true);
+            pauseCanvas.enabled = true;
             Cursor.lockState = CursorLockMode.None;
             firstPersonController.enabled = false;
             selector.enabled = false;
@@ -42,7 +42,7 @@ public class PauseMenu : MonoBehaviour
         else if (isPaused == false)
         {
             Time.timeScale = 1;
-            pauseCanvas.SetActive(false);
+            pauseCanvas.enabled = false;
             Cursor.lockState = CursorLockMode.Locked;
             firstPersonController.enabled = true;
             selector.enabled = true;
