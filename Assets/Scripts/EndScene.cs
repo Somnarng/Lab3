@@ -12,6 +12,6 @@ public class EndScene : MonoBehaviour
     }
     public void SceneChange()
     {
-        SceneManager.LoadScene("EndScene");
+        SceneManager.LoadScene("EndSceneCh2");
     }
 }

@@ -15,7 +15,7 @@ public class ToggleHold : MonoBehaviour
             Toggle();
         }
     }
-    void Toggle()
+    public void Toggle()
     {
         myList[currentActiveIndex].SetActive(false);
         currentActiveIndex++;
