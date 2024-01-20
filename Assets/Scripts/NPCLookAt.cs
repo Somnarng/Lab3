@@ -12,17 +12,16 @@ public class NPCLookAt : MonoBehaviour
     public Quaternion defRot;
     void Update()
     {
-
         if (DialogueIN == true)
         {
-            CancelInvoke();
             var lookPos = player.position - transform.position;
             lookPos.y = 0;
             var rotation = Quaternion.LookRotation(lookPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * speed);
         }
-        else if(DialogueIN == false) { 
-            Invoke("ResetPos", 2f);
+        else{
+            var defRotation = defRot;
+            transform.rotation = Quaternion.Slerp(transform.rotation, defRotation, Time.deltaTime * speed);
         }
     }
 
@@ -30,9 +29,4 @@ public class NPCLookAt : MonoBehaviour
     {
         DialogueIN = !DialogueIN;
     }
-    public void ResetPos()
-    {
-       var defRotation = defRot;
-        transform.rotation = Quaternion.Slerp(transform.rotation, defRotation, Time.deltaTime * speed);
     }
-}
