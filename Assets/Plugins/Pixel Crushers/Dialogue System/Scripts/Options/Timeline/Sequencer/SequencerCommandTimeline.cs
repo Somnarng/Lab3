@@ -1,5 +1,4 @@
-// Recompile at 1/23/2024 12:52:54 PM
-#if USE_TIMELINE
+﻿#if USE_TIMELINE
 #if UNITY_2017_1_OR_NEWER
 // Copyright (c) Pixel Crushers. All rights reserved.
 
@@ -126,7 +125,7 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
                         case "play":
                             playableDirector.Play();
                             var endTime = nowait ? 0 : DialogueTime.time + playableDirector.playableAsset.duration;
-                            while (DialogueTime.time < endTime)
+                            while (DialogueTime.time < endTime || playableDirector.extrapolationMode == DirectorWrapMode.Loop)
                             {
                                 yield return null;
                             }
@@ -138,7 +137,7 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
                         case "resume":
                             playableDirector.Resume();
                             var resumedEndTime = nowait ? 0 : DialogueTime.time + playableDirector.playableAsset.duration - playableDirector.time;
-                            while (DialogueTime.time < resumedEndTime)
+                            while (DialogueTime.time < resumedEndTime || playableDirector.extrapolationMode == DirectorWrapMode.Loop)
                             {
                                 yield return null;
                             }

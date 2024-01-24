@@ -103,6 +103,7 @@ namespace PixelCrushers.DialogueSystem
             }
             base.Open();
             conversationUIElements.OpenSubtitlePanelsOnStart(this);
+            conversationUIElements.ClearSubtitleTextOnConversationStart();
         }
 
         public override void Close()
@@ -132,7 +133,7 @@ namespace PixelCrushers.DialogueSystem
                 yield return null;
             }
             // Close main panel and wait for it to finish:
-            if (conversationUIElements.mainPanel != null)
+            if (conversationUIElements.mainPanel != null && !conversationUIElements.dontDeactivateMainPanel)
             {
                 if (DialogueSystemController.isWarmingUp)
                 {
@@ -306,9 +307,9 @@ namespace PixelCrushers.DialogueSystem
             conversationUIElements.standardMenuControls.SetActorMenuPanelNumber(dialogueActor, menuPanelNumber);
         }
 
-        public virtual void OverrideActorPanel(Actor actor, SubtitlePanelNumber subtitlePanelNumber)
+        public virtual void OverrideActorPanel(Actor actor, SubtitlePanelNumber subtitlePanelNumber, bool immediate = false)
         {
-            conversationUIElements.standardSubtitleControls.OverrideActorPanel(actor, subtitlePanelNumber);
+            conversationUIElements.standardSubtitleControls.OverrideActorPanel(actor, subtitlePanelNumber, null, immediate);
         }
 
         public virtual void ForceOverrideSubtitlePanel(StandardUISubtitlePanel customPanel)
@@ -346,6 +347,7 @@ namespace PixelCrushers.DialogueSystem
         protected virtual void ShowResponsesImmediate(Subtitle subtitle, Response[] responses, float timeout)
         { 
             conversationUIElements.standardSubtitleControls.UnfocusAll();
+            conversationUIElements.standardSubtitleControls.HideOnResponseMenu();
             base.ShowResponses(subtitle, responses, timeout);
         }
 

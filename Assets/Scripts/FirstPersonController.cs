@@ -89,7 +89,9 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
-		private bool IsCurrentDeviceMouse
+        private bool inMenu = false;
+
+        private bool IsCurrentDeviceMouse
 		{
 			get
 			{
@@ -127,20 +129,31 @@ namespace StarterAssets
 
 		private void Update()
 		{
-			JumpAndGravity();
-			GroundedCheck();
-			Move();
-			CheckLayers();
-			Footsteps();
+			if (!inMenu)
+			{
+				JumpAndGravity();
+				GroundedCheck();
+				Move();
+				CheckLayers();
+				Footsteps();
+			}
 		}
 
 		private void LateUpdate()
 		{
-			CameraRotation();
-			SprintFOV();
+			if (!inMenu)
+			{
+				CameraRotation();
+				SprintFOV();
+			}
 		}
+        public void PlayerInput(bool value)
+        {
+            inMenu = value;
+            RotationSpeed = PlayerPrefs.GetFloat("sensitivity", 1);
+        }
 
-		private void GroundedCheck()
+        private void GroundedCheck()
 		{
 			// set sphere position, with offset
 			Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
@@ -234,7 +247,8 @@ namespace StarterAssets
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-				}
+                    footstepTimer = 0;
+                }
 
 				// jump timeout
 				if (_jumpTimeoutDelta >= 0.0f)
