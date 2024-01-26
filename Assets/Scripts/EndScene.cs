@@ -5,13 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class EndScene : MonoBehaviour
 {
-
- public void ChangeScene()
-    {
-        Invoke("SceneChange", 1);
-    }
+    public string SceneName;
     public void SceneChange()
     {
-        SceneManager.LoadScene("EndSceneCh2");
+        SceneManager.LoadScene(SceneName);
     }
 }

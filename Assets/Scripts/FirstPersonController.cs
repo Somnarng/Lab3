@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Cinemachine;
+using UnityEditor;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -129,7 +130,8 @@ namespace StarterAssets
 
 		private void Update()
 		{
-			if (!inMenu)
+			UpdateMouse();
+            if (!inMenu)
 			{
 				JumpAndGravity();
 				GroundedCheck();
@@ -146,6 +148,12 @@ namespace StarterAssets
 				CameraRotation();
 				SprintFOV();
 			}
+		}
+
+		public void UpdateMouse()
+		{
+			if (!inMenu) { Cursor.lockState = CursorLockMode.Locked; }
+			else { Cursor.lockState = CursorLockMode.None;}
 		}
         public void PlayerInput(bool value)
         {
@@ -247,7 +255,7 @@ namespace StarterAssets
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-                    footstepTimer = 0;
+                    //footstepTimer = 0;
                 }
 
 				// jump timeout
@@ -298,7 +306,7 @@ namespace StarterAssets
 		}
 		private void Footsteps()
 		{
-			if (!_controller.isGrounded) return;
+			//if (!_controller.isGrounded) return;
 			if (_input.move == Vector2.zero) return;
 
 			footstepTimer -= Time.deltaTime;
