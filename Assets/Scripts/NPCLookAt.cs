@@ -8,8 +8,13 @@ public class NPCLookAt : MonoBehaviour
     [SerializeField]
     private int speed = 5;
     private bool DialogueIN = false;
+    private bool rotatedBack = true;
     [SerializeField]
     public Quaternion defRot;
+    private void Start()
+    {
+        defRot = transform.rotation;
+    }
     void Update()
     {
 
@@ -20,8 +25,9 @@ public class NPCLookAt : MonoBehaviour
             lookPos.y = 0;
             var rotation = Quaternion.LookRotation(lookPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * speed);
+            rotatedBack = false;
         }
-        else if(DialogueIN == false) { 
+        else if(DialogueIN == false && rotatedBack == false) { 
             Invoke("ResetPos", 2f);
         }
     }
@@ -30,9 +36,18 @@ public class NPCLookAt : MonoBehaviour
     {
         DialogueIN = !DialogueIN;
     }
+    public void DiTrue()
+    {
+        DialogueIN = true;
+    }
+    public void DiFalse()
+    {
+        DialogueIN = false;
+    }
     public void ResetPos()
     {
        var defRotation = defRot;
         transform.rotation = Quaternion.Slerp(transform.rotation, defRotation, Time.deltaTime * speed);
+        rotatedBack = true;
     }
 }
