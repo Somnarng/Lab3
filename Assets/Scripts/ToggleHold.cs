@@ -10,7 +10,7 @@ public class ToggleHold : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && myList.Count > 1)
         {
             Toggle();
         }
