@@ -18,11 +18,11 @@ public class TauLeave : MonoBehaviour
 
     private void Update()
     {
-        if (agent.velocity.magnitude > 0.1f)
+        if (agent.velocity.magnitude > 0.001f)
         {
             animator.SetBool("Walking", true);
         }
-        else
+        else if (agent.velocity.magnitude == 0f)
         {
             animator.SetBool("Walking", false);
         }

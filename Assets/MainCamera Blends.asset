@@ -35,10 +35,10 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 0
-  - m_From: '**ANY CAMERA**'
+  - m_From: VcamEnter1
     m_To: PlayerFollowCamera
     m_Blend:
-      m_Style: 1
+      m_Style: 0
       m_Time: 2
       m_CustomCurve:
         serializedVersion: 2
@@ -51,17 +51,6 @@ MonoBehaviour:
     m_Blend:
       m_Style: 1
       m_Time: 4
-      m_CustomCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 0
-        m_PostInfinity: 0
-        m_RotationOrder: 0
-  - m_From: VcamEnter2
-    m_To: PlayerFollowCamera
-    m_Blend:
-      m_Style: 6
-      m_Time: 2
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []
