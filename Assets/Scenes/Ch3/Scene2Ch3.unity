@@ -678,7 +678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5385423579718060964, guid: 92c15d7480f3c0d408d473aa76258fb1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.091
+      value: 6.017
       objectReference: {fileID: 0}
     - target: {fileID: 5385423579718060964, guid: 92c15d7480f3c0d408d473aa76258fb1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -732,6 +732,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4753283990338392350, guid: 92c15d7480f3c0d408d473aa76258fb1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 113135581}
+    - targetCorrespondingSourceObject: {fileID: 4753283990338392350, guid: 92c15d7480f3c0d408d473aa76258fb1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 113135587}
   m_SourcePrefab: {fileID: 100100000, guid: 92c15d7480f3c0d408d473aa76258fb1, type: 3}
 --- !u!1 &113135580 stripped
 GameObject:
@@ -790,7 +793,7 @@ MonoBehaviour:
   cacheBarkLines: 0
   conversation: MarcusFinal
   conversationConversant: {fileID: 0}
-  conversationActor: {fileID: 0}
+  conversationActor: {fileID: 113135586}
   startConversationEntryID: -1
   startConversationEntryTitle: 
   exclusive: 0
@@ -874,9 +877,116 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d63f31b045a9546ad296b8c5911b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 601881356}
+  player: {fileID: 1752222065}
   speed: 5
   defRot: {x: 0, y: 0, z: 0, w: 0}
+--- !u!4 &113135586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5385423579718060964, guid: 92c15d7480f3c0d408d473aa76258fb1, type: 3}
+  m_PrefabInstance: {fileID: 113135579}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &113135587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113135580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5473918a168c44fa0294bd4d1399f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversationEvents:
+    onConversationStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 113135584}
+          m_TargetAssemblyTypeName: NPCLookAt, Assembly-CSharp
+          m_MethodName: DiTrue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onConversationEnd:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 113135584}
+          m_TargetAssemblyTypeName: NPCLookAt, Assembly-CSharp
+          m_MethodName: DiFalse
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    runOnConversationEndEventsAtEndOfFrame: 0
+    onConversationCancelled:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationLine:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationLineEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationLineCancelled:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationResponseMenu:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationResponseMenuTimeout:
+      m_PersistentCalls:
+        m_Calls: []
+    onLinkedConversationStart:
+      m_PersistentCalls:
+        m_Calls: []
+  barkEvents:
+    onBarkStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onBarkEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    onBarkLine:
+      m_PersistentCalls:
+        m_Calls: []
+  sequenceEvents:
+    onSequenceStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSequenceEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  questEvents:
+    onQuestStateChange:
+      m_PersistentCalls:
+        m_Calls: []
+    onQuestTrackingEnabled:
+      m_PersistentCalls:
+        m_Calls: []
+    onQuestTrackingDisabled:
+      m_PersistentCalls:
+        m_Calls: []
+    onUpdateQuestTracker:
+      m_PersistentCalls:
+        m_Calls: []
+  pauseEvents:
+    onDialogueSystemPause:
+      m_PersistentCalls:
+        m_Calls: []
+    onDialogueSystemUnpause:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &121441840
 GameObject:
   m_ObjectHideFlags: 0
@@ -3443,6 +3553,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1879261015}
   speed: 5
+--- !u!21 &253464444
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/DarkBringerRefined_1_2
+  m_Shader: {fileID: 4800000, guid: 99d80d0fdb7c6724c89e77d81bbc026a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BayerTex:
+        m_Texture: {fileID: 2800000, guid: eac7505667530464e91debe0b4a8492b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Lut2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &253651782
 GameObject:
   m_ObjectHideFlags: 0
@@ -4491,45 +4640,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &319609499
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/DarkBringerRefined_1_2
-  m_Shader: {fileID: 4800000, guid: 99d80d0fdb7c6724c89e77d81bbc026a, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BayerTex:
-        m_Texture: {fileID: 2800000, guid: eac7505667530464e91debe0b4a8492b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Lut2D:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &323217260
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,7 +5106,7 @@ MonoBehaviour:
   cacheBarkLines: 0
   conversation: MarcusEnter
   conversationConversant: {fileID: 0}
-  conversationActor: {fileID: 0}
+  conversationActor: {fileID: 2093169176}
   startConversationEntryID: -1
   startConversationEntryTitle: 
   exclusive: 0
@@ -7275,7 +7385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493125606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.676714, y: 8.1310005, z: -21.181}
+  m_LocalPosition: {x: 27.676714, y: 8.281, z: -21.181}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9005,6 +9115,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5912168808232112602, guid: 4c96959d7f377504db67cf263717f682, type: 3}
       insertIndex: -1
       addedObject: {fileID: 601881355}
+    - targetCorrespondingSourceObject: {fileID: 5912168808232112602, guid: 4c96959d7f377504db67cf263717f682, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 601881358}
   m_SourcePrefab: {fileID: 100100000, guid: 4c96959d7f377504db67cf263717f682, type: 3}
 --- !u!1 &601881354 stripped
 GameObject:
@@ -9031,6 +9144,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6433372936175979360, guid: 4c96959d7f377504db67cf263717f682, type: 3}
   m_PrefabInstance: {fileID: 601881353}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &601881358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601881354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64578247383140469c45370654a984a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actor: Kolbez
+  persistentDataName: 
+  portrait: {fileID: 0}
+  spritePortrait: {fileID: 0}
+  barkUISettings:
+    barkUI: {fileID: 0}
+    barkUIOffset: {x: 0, y: 2, z: 0}
+  standardDialogueUISettings:
+    subtitlePanelNumber: 0
+    customSubtitlePanel: {fileID: 0}
+    customSubtitlePanelOffset: {x: 0, y: 0, z: 0}
+    menuPanelNumber: 0
+    customMenuPanel: {fileID: 0}
+    customMenuPanelOffset: {x: 0, y: 0, z: 0}
+    useMenuPanelFor: 0
+    portraitAnimatorController: {fileID: 0}
+    setSubtitleColor: 0
+    applyColorToPrependedName: 0
+    prependActorNameSeparator: ': '
+    prependActorNameFormat: '{0}{1}'
+    subtitleColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &622518578
 GameObject:
   m_ObjectHideFlags: 0
@@ -22060,7 +22206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7765308624420200337, guid: 119484a7b5acb4d489313897476994f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.75
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 8897246660826843012, guid: 119484a7b5acb4d489313897476994f3, type: 3}
       propertyPath: CutsceneCamera
@@ -23601,7 +23747,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-  - guid: 4182627f-ec17-4f19-bb50-6408b81aade2
+  - guid: a7e29f3f-30a6-462e-9689-f68de2274d92
     onExecute:
       m_PersistentCalls:
         m_Calls:
@@ -24179,14 +24325,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sha: {fileID: 4800000, guid: 99d80d0fdb7c6724c89e77d81bbc026a, type: 3}
-  mat: {fileID: 319609499}
+  mat: {fileID: 253464444}
   flatLut: {fileID: 2800000, guid: ed64f9e7bcc4d9f4993fd20c43d2498d, type: 3}
   bayerTexture: {fileID: 2800000, guid: eac7505667530464e91debe0b4a8492b, type: 3}
-  ColorBleed: -0.5
+  ColorBleed: 0.4
   LinesMult: 0.8
   ColorShift: 1.5
   newScreenSize: {x: 128, y: 128}
-  screenStretching: {x: 0.01, y: 0.01}
+  screenStretching: {x: 0.05, y: 0.05}
   CustomScreenSize: 1
   AspectRatioBars: 0
   OneBitColor: 0
@@ -24296,7 +24442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855180534}
   m_LocalRotation: {x: 0, y: 0.9961947, z: -0, w: -0.08715578}
-  m_LocalPosition: {x: 27.676714, y: 8.1310005, z: -21.181}
+  m_LocalPosition: {x: 27.676714, y: 8.281, z: -21.181}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
