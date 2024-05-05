@@ -374,7 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 5
   SprintSpeed: 10
-  RotationSpeed: 1
+  RotationSpeed: 2
   SpeedChangeRate: 10
   footstepTimer: 0
   woodSounds:
@@ -395,7 +395,7 @@ MonoBehaviour:
   JumpTimeout: 0.1
   FallTimeout: 0.15
   Grounded: 1
-  GroundedOffset: 0.05
+  GroundedOffset: 0.09
   GroundedRadius: 0.5
   GroundLayers:
     serializedVersion: 2

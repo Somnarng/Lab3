@@ -15,14 +15,12 @@ public class CutsceneStart : Interactable
         base.Activate();
         _cutsceneToPlay.SetActive(true);
         PlayerController.Instance.CutsceneCamera.SetActive(true);
-        PlayerController.Instance.FirstPersonCamera.SetActive(false);
     }
 
     public override void Deactivate()
     {
         base.Deactivate();
         PlayerController.Instance.CutsceneCamera.SetActive(false);
-        PlayerController.Instance.FirstPersonCamera.SetActive(true);
 
         if (oneTime)
         {

@@ -19,7 +19,7 @@ namespace StarterAssets
 		[Tooltip("Sprint speed of the character in m/s")]
 		public float SprintSpeed = 6.0f;
 		[Tooltip("Rotation speed of the character")]
-		public float RotationSpeed = 1.0f;
+		public float RotationSpeed = 2f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
 
@@ -158,7 +158,6 @@ namespace StarterAssets
         public void PlayerInput(bool value)
         {
             inMenu = value;
-            RotationSpeed = PlayerPrefs.GetFloat("sensitivity", 1);
         }
 
         private void GroundedCheck()
@@ -330,16 +329,16 @@ namespace StarterAssets
 		{
 			if (_input.sprint)
 			{
-				if (cam.m_Lens.FieldOfView < 50)
+				if (cam.m_Lens.FieldOfView < 60)
 				{
-					cam.m_Lens.FieldOfView = Mathf.Lerp(cam.m_Lens.FieldOfView, 50, 10 * Time.deltaTime);
+					cam.m_Lens.FieldOfView = Mathf.Lerp(cam.m_Lens.FieldOfView, 60, 10 * Time.deltaTime);
 				}
 			}
 			else
 			{
-				if (cam.m_Lens.FieldOfView > 40)
+				if (cam.m_Lens.FieldOfView > 50)
 				{
-					cam.m_Lens.FieldOfView = Mathf.Lerp(cam.m_Lens.FieldOfView, 40, 10 * Time.deltaTime);
+					cam.m_Lens.FieldOfView = Mathf.Lerp(cam.m_Lens.FieldOfView, 50, 10 * Time.deltaTime);
 				}
 			}
 		}
