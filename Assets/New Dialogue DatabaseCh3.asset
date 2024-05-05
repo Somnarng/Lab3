@@ -25620,12 +25620,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 'CinemachinePriority(all, 0);
-
-          CinemachinePriority(CCam1);
-
-          ChangeActorName("Rijn",
-          "Rijn")'
+        value: ChangeActorName("Rijn", "Rijn")
         type: 0
         typeString: 
       conversationID: 47
@@ -25649,7 +25644,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
+        x: 158.86365
         y: 80
         width: 160
         height: 30
@@ -25680,7 +25675,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 
+        value: 'CinemachinePriority(all, 0);
+
+          CinemachinePriority(CCam1);'
         type: 0
         typeString: 
       conversationID: 47
@@ -25704,7 +25701,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 159.08255
+        x: 157.94618
         y: 130
         width: 160
         height: 30
